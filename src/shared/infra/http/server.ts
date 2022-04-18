@@ -3,12 +3,13 @@ import "express-async-errors";
 import "reflect-metadata";
 import swaggerUi from "swagger-ui-express";
 
-import "../typeorm";
 import swaggerFile from "../../../swagger.json";
 import { AppError } from "../../errors/AppError";
+import createConnection from "../typeorm";
 import "../../container";
 import { router } from "./routes";
 
+createConnection("database_ignite");
 const app = express();
 app.use(express.json());
 
